@@ -7,7 +7,21 @@
 <body>
   <ul>
     <li>姓名：{{ name }}</li>
+    <li>姓名：{{ name | upper }}</li>
     <li>年龄：{{ age }}</li>
+    {% if age > 18 %}
+    <li>成年</li>
+    {% else %}
+    <li>未成年</li>
+    {% endif %}
   </ul>
+
+  <h2>四大名著</h2>
+  <ol>
+    {% for book in books %}
+    <li>{{ book }}</li>
+    {% endfor %}
+  </ol>
+
 </body>
 </html>

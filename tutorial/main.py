@@ -24,6 +24,7 @@ def index(request: Request):
             'request': request,
             "name": "lisi",
             'age': 18,
+            'books': ['西游记', '水浒传']
         },
     )
 
