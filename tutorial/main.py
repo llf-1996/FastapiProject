@@ -19,7 +19,7 @@ templates = Jinja2Templates(directory="templates")
 @router_obj.get('/index')
 def index(request: Request):
     return templates.TemplateResponse(
-        "turorial/index.html",
+        "tutorial/index.html",
         {
             'request': request,
             "name": "lisi",
