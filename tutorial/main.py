@@ -7,11 +7,25 @@
 """
 from typing import Union, Optional
 
-from fastapi import HTTPException, status
+from fastapi import HTTPException, status, Request
 from pydantic import BaseModel
 from fastapi import APIRouter
+from fastapi.templating import Jinja2Templates
 
 router_obj = APIRouter()
+templates = Jinja2Templates(directory="templates")
+
+
+@router_obj.get('/index')
+def index(request: Request):
+    return templates.TemplateResponse(
+        "turorial/index.html",
+        {
+            'request': request,
+            "name": "lisi",
+            'age': 18,
+        },
+    )
 
 
 @router_obj.get("/demo")

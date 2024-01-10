@@ -11,7 +11,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import PlainTextResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from turorial.main import router_obj as router_tutorial
+from tutorial.main import router_obj as router_tutorial
 from accounts.main import router_obj as router_account
 from coronavirus.main import router_obj as router_coronavirus
 from utils.database import Base, engine
@@ -25,7 +25,7 @@ app = FastAPI(
     redoc_url='/redocs',
 )
 app.mount(path='/static', app=StaticFiles(directory='./static'), name='static')
-app.include_router(router_tutorial, prefix='/tutorial', tags=['tutorial'])
+app.include_router(router_tutorial, tags=['tutorial'])
 app.include_router(router_account, prefix='/accounts', tags=['账户'])
 app.include_router(router_coronavirus, prefix='/coronavirus', tags=['新冠疫情跟踪器'])
 
